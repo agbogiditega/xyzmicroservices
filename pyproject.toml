@@ -27,9 +27,8 @@ test = [
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["services", "tests"]
-addopts = "-q --disable-warnings --maxfail=1"
-# NOTE: Coverage flags are intentionally not global so that
-# unit-only, integration-only, and e2e-only runs can execute standalone.
+addopts = "--cov=services --cov-report=term-missing --cov-report=xml --cov-fail-under=80 -q --disable-warnings --maxfail=1"
+#addopts = "-q --disable-warnings --maxfail=1"
 
 [tool.coverage.run]
 branch = true
