@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# Tests & local tooling
+tests/
+.env
+.env.*
+coverage.xml
+htmlcov/
+
+# Git
+.git
+.gitignore
+
+# Docs & misc
+README.md
+*.md
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/

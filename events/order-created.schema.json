@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrderCreated",
+  "type": "object",
+  "required": ["type", "data", "version", "timestamp"],
+  "properties": {
+    "type": {
+      "const": "OrderCreated"
+    },
+    "version": {
+      "type": "string",
+      "example": "1.0"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "data": {
+      "type": "object",
+      "required": ["order_id", "sku", "qty"],
+      "properties": {
+        "order_id": { "type": "string" },
+        "sku": { "type": "string" },
+        "qty": { "type": "integer", "minimum": 1 }
+      }
+    }
+  }
+}
