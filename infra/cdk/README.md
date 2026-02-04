@@ -48,7 +48,8 @@ From the repository root:
 ```bash
 cd infra/cdk
 python3 -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate   #macOS/Linux
+.\.venv\Scripts\Activate.ps1  #windows
 pip install -r requirements.txt
 ```
 
