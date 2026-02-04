@@ -58,17 +58,22 @@ Bootstrap CDK (one-time per account/region):
 #macOS/Linux
 export ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 export REGION=us-east-1
+cdk bootstrap -c account=$ACCOUNT_ID -c region=$REGION
 
 #windows
 $Env:ACCOUNT_ID = aws sts get-caller-identity --query Account --output text
 $Env:REGION = "us-east-1"
+cdk bootstrap aws://$Env:ACCOUNT_ID/$Env:REGION
 
-cdk bootstrap -c account=$ACCOUNT_ID -c region=$REGION
 ```
 
 Deploy the stack:
 ```bash
+#macOS/Linux
 cdk deploy -c account=$ACCOUNT_ID -c region=$REGION
+
+#windows
+cdk deploy -c account=$Env:ACCOUNT_ID -c region=$Env:REGION
 ```
 
 When deployment finishes, CDK prints outputs including:
@@ -97,7 +102,11 @@ curl -s -X POST http://${ALB_DNS}/orders   -H "Content-Type: application/json"  
 ## Destroy (Cleanup)
 
 ```bash
+#macOS/Linux
 cdk destroy -c account=$ACCOUNT_ID -c region=$REGION
+
+#windows
+cd destroy-c account=$Env:ACCOUNT_ID -c region=$Env:REGION
 ```
 
 ---
