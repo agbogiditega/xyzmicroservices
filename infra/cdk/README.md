@@ -55,8 +55,14 @@ pip install -r requirements.txt
 
 Bootstrap CDK (one-time per account/region):
 ```bash
+#macOS/Linux
 export ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 export REGION=us-east-1
+
+#windows
+$Env:ACCOUNT_ID = aws sts get-caller-identity --query Account --output text
+$Env:REGION = "us-east-1"
+
 cdk bootstrap -c account=$ACCOUNT_ID -c region=$REGION
 ```
 
